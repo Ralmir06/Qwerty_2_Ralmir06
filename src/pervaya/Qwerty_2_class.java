@@ -4,7 +4,6 @@ import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 
 import javax.swing.GroupLayout;
@@ -32,7 +31,6 @@ public class Qwerty_2_class {
 
     /**
      * Launch the application.
-     * @throws IOException
      */
     public static void main(String[] args) {
         // Path_T nachalo = new Path_T();
@@ -106,13 +104,11 @@ public class Qwerty_2_class {
          * { char c = e.getKeyChar(); if ( ((c < '0') || (c > '9')) && (c !=
          * KeyEvent.VK_Z)) { e.consume(); // ignore event } } });
          */
-        textField.setText(
-                "\u041F\u0440\u043E\u0432\u0435\u0440\u044F\u044E \u0440\u0430\u0431\u043E\u0442\u043E\u0441\u043F\u043E\u0441\u043E\u0431\u043D\u043E\u0441\u0442\u044C \u043F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u044B!");
-        textField.setToolTipText(
-                "\u0412\u0432\u0435\u0434\u0438\u0442\u0435 \u0441\u044E\u0434\u0430 \u0442\u043E, \u0447\u0442\u043E \u0434\u043E\u043B\u0436\u0435\u043D \u0441\u0434\u0435\u043B\u0430\u0442\u044C \u0438\u043B\u0438 \u0441\u043A\u0430\u0437\u0430\u0442\u044C \u0412\u0430\u0448 \u043F\u0435\u0440\u0441\u043E\u043D\u0430\u0436.");
+        textField.setText("Проверяю работоспособность программы!");
+        textField.setToolTipText("Введите сюда то, что должен сделать или сказать Ваш персонаж.");
         textField.setColumns(10);
 
-        JButton button = new JButton("\u041F\u043E\u0434\u0443\u043C\u0430\u0442\u044C");
+        JButton button = new JButton("Подумать");
         button.addActionListener(new ActionListener() { // КНОПКА "ПОДУМАТЬ"
             public void actionPerformed(ActionEvent arg0) {
                 // В принципе работает, но не заполоню ли я память кучей объектов этого
@@ -124,7 +120,7 @@ public class Qwerty_2_class {
             }
         });
 
-        JButton button_1 = new JButton("\u0421\u0434\u0435\u043B\u0430\u0442\u044C");
+        JButton button_1 = new JButton("Сделать");
         button_1.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) { // КНОПКА "СКАЗАТЬ"
                 // Skasat sk = new Skasat ();
@@ -135,7 +131,7 @@ public class Qwerty_2_class {
             }
         });
 
-        JButton button_2 = new JButton("\u042D\u0442\u043E \u043D\u0435 \u0442\u043E!");
+        JButton button_2 = new JButton("Это не то!");
         button_2.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent arg0) {
                 PerezapisNT_p4.perezapis_N();
@@ -143,7 +139,7 @@ public class Qwerty_2_class {
             }
         });
 
-        JButton button_3 = new JButton("\u041F\u043E\u043C\u043E\u0449\u044C");
+        JButton button_3 = new JButton("Помощь");
         GroupLayout groupLayout = new GroupLayout(frame.getContentPane());
         groupLayout.setHorizontalGroup(groupLayout.createParallelGroup(Alignment.TRAILING)
                 .addGroup(groupLayout.createSequentialGroup().addContainerGap(81, Short.MAX_VALUE)

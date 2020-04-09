@@ -51,6 +51,8 @@ public class Perehod {
 
         Perem.T = Integer.parseInt(T); // Perem.T будет РАВЕН значению из подстроки от Конца
                                        // варианта до Символа стопора, из файла Комнаты.
+
+        // Мы же уже вызывали это чтение в самом начале. Зачем ещё раз?
         Path_T.path_T();
         // надо использовать try with resources
         // https://docs.oracle.com/javase/tutorial/essential/exceptions/tryResourceClose.html
