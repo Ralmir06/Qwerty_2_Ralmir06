@@ -5,6 +5,7 @@ import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
@@ -31,8 +32,9 @@ public class Qwerty_2_class {
 
     /**
      * Launch the application.
+     * @throws IOException
      */
-    public static void main(String[] args) throws FileNotFoundException {
+    public static void main(String[] args) {
         // Path_T nachalo = new Path_T();
         String tok = Path_T.path_T();
 
