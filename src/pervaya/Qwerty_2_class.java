@@ -24,6 +24,9 @@ import skasat.Skasat;
 
 public class Qwerty_2_class {
 
+    private String tok;
+
+    // @todo избавиться от глобальной переменной
     public static JTextField textField;
 
     /**
@@ -31,10 +34,11 @@ public class Qwerty_2_class {
      */
     public static void main(String[] args) throws FileNotFoundException {
         // Path_T nachalo = new Path_T();
-        Path_T.path_T();
+        String tok = Path_T.path_T();
+
         // Сначала создаём объект, наполняем его данными,
         // и только потом заставляем его что-то делать, например рисовать окошко.
-        Qwerty_2_class window = new Qwerty_2_class();
+        Qwerty_2_class window = new Qwerty_2_class(tok);
         // Смотрим на пример из
         // https://docs.oracle.com/javase/tutorial/uiswing/start/compile.html
         // т.е. вот сюда:
@@ -49,7 +53,8 @@ public class Qwerty_2_class {
     /**
      * Create the application.
      */
-    public Qwerty_2_class() {
+    public Qwerty_2_class(String tok) {
+        this.tok = tok;
     }
 
     public void createAndShow() {
@@ -60,7 +65,7 @@ public class Qwerty_2_class {
     /**
      * Initialize the contents of the frame.
      */
-    private static JFrame initialize() {
+    private JFrame initialize() {
         JFrame frame = new JFrame();
         frame.setBounds(100, 100, 1100, 480);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -72,7 +77,7 @@ public class Qwerty_2_class {
         textArea.setWrapStyleWord(true);
         textArea.setForeground(new Color(0, 0, 0));
         textArea.setLineWrap(true);
-        textArea.setText(Path_T.TOk);
+        textArea.setText(this.tok);
         // Ниже расположен код с помощью которого стандартное Поле Ввода замещается
         // Полем форматирования с маской, через которую пропускаются только определённые
         // символы.
@@ -123,7 +128,7 @@ public class Qwerty_2_class {
                 // Skasat sk = new Skasat ();
                 Skasat.skasat();
                 System.out.println("Перехожу в новую комнату");
-                textArea.setText(Path_T.TOk);
+                textArea.setText(Qwerty_2_class.this.tok);
                 textArea_1.setText("");
             }
         });
