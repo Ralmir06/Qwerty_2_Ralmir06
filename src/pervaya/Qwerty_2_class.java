@@ -1,15 +1,20 @@
 package pervaya;
 
+import java.awt.Color;
 import java.awt.EventQueue;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.FileNotFoundException;
 
-import javax.swing.JFormattedTextField;
-import javax.swing.JFrame;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
+import javax.swing.JButton;
+import javax.swing.JFormattedTextField;
+import javax.swing.JFrame;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.LayoutStyle.ComponentPlacement;
-import javax.swing.JButton;
+import javax.swing.text.MaskFormatter;
 
 import ne_to.PerezapisNT_p4;
 import osobya.Path_T;
@@ -17,41 +22,26 @@ import osobya.Path_V;
 import podumat.Podumat;
 import skasat.Skasat;
 
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
-import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
-import java.io.FileNotFoundException;
-import java.awt.Color;
-
-import javax.swing.DropMode;
-import javax.swing.text.MaskFormatter;
-
 public class Qwerty_2_class {
 
-    public static String s = "ѕерехожу в новую комнату"; //
-    private JFrame frame;
     public static JTextField textField;
 
     /**
      * Launch the application.
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) throws FileNotFoundException {
         // Path_T nachalo = new Path_T();
-        try {
-            Path_T.path_T();
-        } catch (FileNotFoundException e1) {
-            // TODO Auto-generated catch block
-            e1.printStackTrace();
-        }
+        Path_T.path_T();
+        // —начала создаЄм объект, наполн€ем его данными,
+        // и только потом заставл€ем его что-то делать, например рисовать окошко.
+        Qwerty_2_class window = new Qwerty_2_class();
+        // —мотрим на пример из
+        // https://docs.oracle.com/javase/tutorial/uiswing/start/compile.html
+        // т.е. вот сюда:
+        // https://docs.oracle.com/javase/tutorial/uiswing/examples/start/HelloWorldSwingProject/src/start/HelloWorldSwing.java
         EventQueue.invokeLater(new Runnable() {
             public void run() {
-                try {
-                    Qwerty_2_class window = new Qwerty_2_class();
-                    window.frame.setVisible(true);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
+                window.createAndShow();
             }
         });
     }
@@ -60,14 +50,18 @@ public class Qwerty_2_class {
      * Create the application.
      */
     public Qwerty_2_class() {
-        initialize();
+    }
+
+    public void createAndShow() {
+        JFrame frame = initialize();
+        frame.setVisible(true);
     }
 
     /**
      * Initialize the contents of the frame.
      */
-    private void initialize() {
-        frame = new JFrame();
+    private static JFrame initialize() {
+        JFrame frame = new JFrame();
         frame.setBounds(100, 100, 1100, 480);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
@@ -86,8 +80,8 @@ public class Qwerty_2_class {
         // //textField = new JTextField();
         MaskFormatter formatter = null;
         try {
-            formatter = new MaskFormatter(
-                    "**************************************************************************************************************");
+            formatter = new MaskFormatter("*******************************************************"
+                    + "*******************************************************");
             formatter.setValidCharacters(
                     ",йцукенгшщзхъфывапролджэ€чсмитьбю.…÷” ≈Ќ√Ўў«’Џ‘џ¬јѕ–ќЋƒ∆Ёя„—ћ»“№Ѕё. ");
         } catch (java.text.ParseException exc) {
@@ -128,7 +122,7 @@ public class Qwerty_2_class {
             public void actionPerformed(ActionEvent e) { //  Ќќѕ ј "— ј«ј“№"
                 // Skasat sk = new Skasat ();
                 Skasat.skasat();
-                System.out.println(Qwerty_2_class.s);
+                System.out.println("ѕерехожу в новую комнату");
                 textArea.setText(Path_T.TOk);
                 textArea_1.setText("");
             }
@@ -186,6 +180,7 @@ public class Qwerty_2_class {
                                 .addComponent(button_2))
                         .addContainerGap(108, Short.MAX_VALUE)));
         frame.getContentPane().setLayout(groupLayout);
+        return frame;
     }
 
 }
