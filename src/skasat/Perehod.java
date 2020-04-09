@@ -9,6 +9,7 @@ package skasat;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.Scanner;
 
 import osobya.Path_T;
@@ -17,11 +18,14 @@ import osobya.Perem;
 
 public class Perehod {
 
-    public static void perehod() throws FileNotFoundException {
+    public static void perehod() {
+        // что? почему опять читаем тот же файл?
         String path = "src//fails//Komnaty";
         File file = new File(path);
 
-        Scanner scanner_slov = new Scanner(file);
+        // @todo избавиться от дублирования с Path_T
+        // а пока просто перевыбросим исключение
+        Scanner scanner_slov = createScanner(file);
         String line = scanner_slov.nextLine();
         System.out.println("Переменную Т");
         System.out.println("Показываю конец варианта: " + Path_V.konez_Varianta);
@@ -47,13 +51,18 @@ public class Perehod {
 
         Perem.T = Integer.parseInt(T); // Perem.T будет РАВЕН значению из подстроки от Конца
                                        // варианта до Символа стопора, из файла Комнаты.
-        try {
-            Path_T.path_T();
-        } catch (FileNotFoundException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
+        Path_T.path_T();
+        // надо использовать try with resources
+        // https://docs.oracle.com/javase/tutorial/essential/exceptions/tryResourceClose.html
         scanner_slov.close();
+    }
+
+    private static Scanner createScanner(File file) {
+        try {
+            return new Scanner(file);
+        } catch (FileNotFoundException ex) {
+            throw new RuntimeException(ex);
+        }
     }
 
 }
