@@ -21,7 +21,7 @@ import java.nio.file.StandardOpenOption;
 import java.util.Arrays;
 import java.util.Scanner;
 
-import osobya.Path_T;
+import osobya.Rooms;
 import osobya.Perem;
 
 public class Prochedura_2 {

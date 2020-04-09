@@ -10,36 +10,42 @@ import java.nio.charset.Charset;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class Path_T {
+public class Rooms {
 
     private static final Charset CHARSET = Charset.forName("Windows-1251");
 
-    // что мы вообще тут делаем?
-    // @todo переименовать во что-то отражающее суть
-    public static String path_T() {
+    /**
+     * Читаем файл, а потом по номеру комнаты из {@link Perem.T} достаём описание комнаты.
+     * Что тут плохо:
+     * 1. Опять глобальные переменные, и опять из-за этого не понятно, что происходит
+     * 2. Очень хреновый и неудобный формат файла. Его и редактировать неудобно и разбирать сложно.
+     * И, судя по комментариям, он порождает какие-то сложности. Знать бы какие.
+     */
+    public static String getRoom() {
         String roomsResourcePath = "/fails/Komnaty";
-        List<String> roomFileLines = readRooms(roomsResourcePath);
-        String line = roomFileLines.get(0);
+        String line = readRooms(roomsResourcePath);
         
         System.out.println("T" + Perem.T);
         String nomer_komnaty = "T" + Perem.T;
         String konez_komnaty = "t" + Perem.T;
 
-        // что такое tok?!
-        String tok = line.substring(line.indexOf("T" + Perem.T) + nomer_komnaty.length() + 1,
-                line.indexOf(konez_komnaty)); // Некоторые особые символы он не читает. Используй
-                                              // буквенные сочетания!
+        int startOfRoom = line.indexOf("T" + Perem.T) + nomer_komnaty.length() + 1;
+        int endOfRoom = line.indexOf(konez_komnaty);
+        String room = line.substring(startOfRoom, endOfRoom);
+        // Это пока не понятно:
+        // Некоторые особые символы он не читает. Используй
+        // буквенные сочетания!
         // ВМЕСТО 3 (ТРОЙКА) ДОЛЖНО БЫТЬ ЧТО-ТО ДРУГОЕ, ВЕДЬ С 3 (ТРОЙКОЙ) ОН НЕ СМОЖЕТ
         // ПРОЧИТАТЬ ДВУЗНАЧНЫЕ НАЗВАНИЯ КОМНАТ!!!
-        System.out.println(tok);
+        System.out.println(room);
         System.out.println();
-        return tok;
+        return room;
     }
 
-    private static List<String> readRooms(String resourcePath) {
-        try (InputStream ins = Path_T.class.getResourceAsStream(resourcePath);
+    private static String readRooms(String resourcePath) {
+        try (InputStream ins = Rooms.class.getResourceAsStream(resourcePath);
                 BufferedReader reader = new BufferedReader(new InputStreamReader(ins, CHARSET))) {
-            return reader.lines().collect(Collectors.toList());
+            return reader.readLine();
         } catch (IOException ex) {
             // просто перевыбрасываем как неперехватываемое исключение
             // в большинстве случаев - это как раз то, что нужно

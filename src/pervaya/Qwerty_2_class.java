@@ -4,7 +4,6 @@ import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.IOException;
 
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
@@ -17,14 +16,14 @@ import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.text.MaskFormatter;
 
 import ne_to.PerezapisNT_p4;
-import osobya.Path_T;
 import osobya.Path_V;
+import osobya.Rooms;
 import podumat.Podumat;
 import skasat.Skasat;
 
 public class Qwerty_2_class {
 
-    private String tok;
+    private String room;
 
     // @todo избавиться от глобальной переменной
     public static JTextField textField;
@@ -34,11 +33,11 @@ public class Qwerty_2_class {
      */
     public static void main(String[] args) {
         // Path_T nachalo = new Path_T();
-        String tok = Path_T.path_T();
+        String room = Rooms.getRoom();
 
         // Сначала создаём объект, наполняем его данными,
         // и только потом заставляем его что-то делать, например рисовать окошко.
-        Qwerty_2_class window = new Qwerty_2_class(tok);
+        Qwerty_2_class window = new Qwerty_2_class(room);
         // Смотрим на пример из
         // https://docs.oracle.com/javase/tutorial/uiswing/start/compile.html
         // т.е. вот сюда:
@@ -53,8 +52,8 @@ public class Qwerty_2_class {
     /**
      * Create the application.
      */
-    public Qwerty_2_class(String tok) {
-        this.tok = tok;
+    public Qwerty_2_class(String room) {
+        this.room = room;
     }
 
     public void createAndShow() {
@@ -77,7 +76,7 @@ public class Qwerty_2_class {
         textArea.setWrapStyleWord(true);
         textArea.setForeground(new Color(0, 0, 0));
         textArea.setLineWrap(true);
-        textArea.setText(this.tok);
+        textArea.setText(this.room);
         // Ниже расположен код с помощью которого стандартное Поле Ввода замещается
         // Полем форматирования с маской, через которую пропускаются только определённые
         // символы.
@@ -123,10 +122,12 @@ public class Qwerty_2_class {
         JButton button_1 = new JButton("Сделать");
         button_1.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) { // КНОПКА "СКАЗАТЬ"
-                // Skasat sk = new Skasat ();
                 Skasat.skasat();
                 System.out.println("Перехожу в новую комнату");
-                textArea.setText(Qwerty_2_class.this.tok);
+                // @todo теперь я понял, зачем тут использовалась глобальная переменная, 
+                // а в Perehod лишний раз звался Path_T.path_T().
+                // Здесь надо получить из skasat() новый номер комнаты и достать его
+                textArea.setText(Qwerty_2_class.this.room);
                 textArea_1.setText("");
             }
         });

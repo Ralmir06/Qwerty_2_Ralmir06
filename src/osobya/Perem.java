@@ -8,7 +8,9 @@
 package osobya;
 
 public class Perem {
+    // @todo remove
 	public static int T=0;
+	
 	public static int [] varianty=new int[10]; 
 	public static int V=0;
 	public String V1;

@@ -12,7 +12,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Scanner;
 
-import osobya.Path_T;
+import osobya.Rooms;
 import osobya.Path_V;
 import osobya.Perem;
 
@@ -52,9 +52,10 @@ public class Perehod {
         Perem.T = Integer.parseInt(T); // Perem.T будет РАВЕН значению из подстроки от Конца
                                        // варианта до Символа стопора, из файла Комнаты.
         
-        // Мы же уже вызывали это чтение в самом начале. Зачем ещё раз?
-        Path_T.path_T();
-        // надо использовать try with resources
+        // Номер комнаты изменился - меняем описание
+        // @todo это пока сломано, т.к. я сходу не разобрался, зачем так
+        Rooms.getRoom();
+        // @todo надо использовать try with resources
         // https://docs.oracle.com/javase/tutorial/essential/exceptions/tryResourceClose.html
         scanner_slov.close();
     }
