@@ -1,15 +1,9 @@
-//Этот файл должен создавать переменную T, для файла Perem
-
 package osobya;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.nio.charset.Charset;
-import java.util.List;
-import java.util.stream.Collectors;
-
+/**
+ * Хранит данные о комнатах и переходах между ними и инкапсулирует (прячет
+ * внутри себя) доступ к этим данным.
+ */
 public class Rooms {
 
     private String data;
@@ -19,14 +13,15 @@ public class Rooms {
     }
 
     /**
-     * Читаем файл, а потом по номеру комнаты достаёт описание комнаты.
+     * По номеру комнаты достаёт описание комнаты.
+     * 
      * Что тут плохо:
-     * 1. Очень хреновый и неудобный формат файла. Его и редактировать неудобно и разбирать сложно.
-     * И, судя по комментариям, он порождает какие-то сложности. Знать бы какие.
+     * 
+     * 1. Очень хреновый и неудобный формат файла. Его и редактировать неудобно и
+     * разбирать сложно. И, судя по комментариям, он порождает какие-то сложности.
+     * Знать бы какие.
      */
     public String getRoom(int roomNumber) {
-        String roomsResourcePath = "/fails/Komnaty";
-        
         System.out.println("T" + roomNumber);
         String roomStartMarker = "T" + roomNumber;
         String roomEndMarker = "t" + roomNumber;
@@ -44,6 +39,22 @@ public class Rooms {
         return room;
     }
 
-    
+    /**
+     * По маркеру варианта возвращает следующий номер комнаты
+     * 
+     * Что тут плохо:
+     * 
+     * 1. Кажется, что надо принимать сразу номер варианта, но это надо дальше
+     * распутывать клубок из глобальных переменных.
+     * 
+     * 2. Возможно, стоит сразу возвращать описание следующей комнаты, но тут тоже
+     * нужна какая-то подготовка.
+     */
+    public int getRoomNumberByVariantMarker(String variantMarker) {
+        int startOfVariant = data.indexOf(variantMarker) + variantMarker.length() + 1;
+        int endOfVariant = data.indexOf("s" + variantMarker) + -1;
+        String roomNumStr = data.substring(startOfVariant, endOfVariant);
+        return Integer.parseInt(roomNumStr);
+    }
 
 }
