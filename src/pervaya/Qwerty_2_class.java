@@ -123,7 +123,7 @@ public class Qwerty_2_class {
         JButton button_1 = new JButton("Сделать");
         button_1.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) { // КНОПКА "СКАЗАТЬ"
-                roomNumber = Skasat.skasat();
+                roomNumber = Skasat.skasat(rooms);
                 System.out.println("Перехожу в новую комнату");
                 // @todo теперь я понял, зачем тут использовалась глобальная переменная,
                 // а в Perehod лишний раз звался Path_T.path_T().
