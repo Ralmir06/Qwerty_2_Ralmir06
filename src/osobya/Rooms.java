@@ -15,22 +15,22 @@ public class Rooms {
     private static final Charset CHARSET = Charset.forName("Windows-1251");
 
     /**
-     * Читаем файл, а потом по номеру комнаты из {@link Perem.T} достаём описание комнаты.
+     * Читаем файл, а потом по номеру комнаты достаёт описание комнаты.
      * Что тут плохо:
-     * 1. Опять глобальные переменные, и опять из-за этого не понятно, что происходит
+     * 1. Незачем постоянно перечитывать файл
      * 2. Очень хреновый и неудобный формат файла. Его и редактировать неудобно и разбирать сложно.
      * И, судя по комментариям, он порождает какие-то сложности. Знать бы какие.
      */
-    public static String getRoom() {
+    public static String getRoom(int roomNumber) {
         String roomsResourcePath = "/fails/Komnaty";
         String line = readRooms(roomsResourcePath);
         
-        System.out.println("T" + Perem.T);
-        String nomer_komnaty = "T" + Perem.T;
-        String konez_komnaty = "t" + Perem.T;
+        System.out.println("T" + roomNumber);
+        String roomStartMarker = "T" + roomNumber;
+        String roomEndMarker = "t" + roomNumber;
 
-        int startOfRoom = line.indexOf("T" + Perem.T) + nomer_komnaty.length() + 1;
-        int endOfRoom = line.indexOf(konez_komnaty);
+        int startOfRoom = line.indexOf(roomStartMarker) + roomStartMarker.length() + 1;
+        int endOfRoom = line.indexOf(roomEndMarker);
         String room = line.substring(startOfRoom, endOfRoom);
         // Это пока не понятно:
         // Некоторые особые символы он не читает. Используй

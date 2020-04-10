@@ -18,12 +18,16 @@ import osobya.Perem;
 
 public class Perehod {
 
-    public static void perehod() {
+    /**
+     * 
+     * @return номер следующей комнаты
+     */
+    public static int perehod() {
         // что? почему опять читаем тот же файл?
         String path = "src//fails//Komnaty";
         File file = new File(path);
 
-        // @todo избавиться от дублирования с Path_T
+        // @todo избавиться от дублирования с Rooms
         // а пока просто перевыбросим исключение
         Scanner scanner_slov = createScanner(file);
         String line = scanner_slov.nextLine();
@@ -49,15 +53,14 @@ public class Perehod {
         System.out.println("Показываю вариант ведущий в комнату: " + Path_V.TOv);
         System.out.println();
 
-        Perem.T = Integer.parseInt(T); // Perem.T будет РАВЕН значению из подстроки от Конца
+        int nextRoom = Integer.parseInt(T); // Perem.T будет РАВЕН значению из подстроки от Конца
                                        // варианта до Символа стопора, из файла Комнаты.
         
-        // Номер комнаты изменился - меняем описание
-        // @todo это пока сломано, т.к. я сходу не разобрался, зачем так
-        Rooms.getRoom();
         // @todo надо использовать try with resources
         // https://docs.oracle.com/javase/tutorial/essential/exceptions/tryResourceClose.html
         scanner_slov.close();
+        
+        return nextRoom;
     }
 
     private static Scanner createScanner(File file) {

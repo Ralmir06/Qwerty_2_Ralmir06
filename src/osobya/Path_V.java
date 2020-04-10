@@ -9,17 +9,19 @@ import java.util.Scanner;
 public class Path_V {
 
     public static String TOv;
-    public static String konez_Varianta = "t" + Perem.T + "v" + Perem.V;
+    public static String konez_Varianta = "t0v0";
 
-    public static void path_V() throws FileNotFoundException {
+    public static void path_V(int roomNumber) throws FileNotFoundException {
+        // ох. оп€ть перечитываем многострадальный файл!
+        // @todo избавитьс€ от дублировани€ с Rooms
         String path = "src//fails//Komnaty";
         File file = new File(path);
 
         Scanner scanner_slov = new Scanner(file);
         String line = scanner_slov.nextLine();
         System.out.println("V" + Perem.V);
-        String nomer_Varianta = "T" + Perem.T + "V" + Perem.V;
-        konez_Varianta = "t" + Perem.T + "v" + Perem.V;
+        String nomer_Varianta = "T" + roomNumber + "V" + Perem.V;
+        konez_Varianta = "t" + roomNumber + "v" + Perem.V;
         // String konez_Varianta="t"+Perem.T+"v"+Perem.V;
         System.out.println(nomer_Varianta);
         System.out.println("¬ывожу конец варианта: " + konez_Varianta);
