@@ -18,15 +18,18 @@ import javax.swing.text.MaskFormatter;
 import ne_to.PerezapisNT_p4;
 import osobya.Path_V;
 import osobya.Rooms;
+import osobya.RoomsReader;
 import podumat.Podumat;
 import skasat.Skasat;
 
 public class Qwerty_2_class {
 
-    protected int roomNumber = 0;
+    private final Rooms rooms;
+    private int roomNumber = 0;
 
     // @todo избавиться от глобальной переменной
     public static JTextField textField;
+
 
     /**
      * Launch the application.
@@ -34,7 +37,8 @@ public class Qwerty_2_class {
     public static void main(String[] args) {
         // Сначала создаём объект, наполняем его данными,
         // и только потом заставляем его что-то делать, например рисовать окошко.
-        Qwerty_2_class window = new Qwerty_2_class();
+        Rooms rooms = new RoomsReader("/fails/Komnaty").readRooms();
+        Qwerty_2_class window = new Qwerty_2_class(rooms);
         // Смотрим на пример из
         // https://docs.oracle.com/javase/tutorial/uiswing/start/compile.html
         // т.е. вот сюда:
@@ -49,7 +53,8 @@ public class Qwerty_2_class {
     /**
      * Create the application.
      */
-    public Qwerty_2_class() {
+    public Qwerty_2_class(Rooms rooms) {
+        this.rooms = rooms;
     }
 
     public void createAndShow() {
@@ -72,7 +77,7 @@ public class Qwerty_2_class {
         textArea.setWrapStyleWord(true);
         textArea.setForeground(new Color(0, 0, 0));
         textArea.setLineWrap(true);
-        textArea.setText(Rooms.getRoom(this.roomNumber));
+        textArea.setText(rooms.getRoom(this.roomNumber));
         // Ниже расположен код с помощью которого стандартное Поле Ввода замещается
         // Полем форматирования с маской, через которую пропускаются только определённые
         // символы.
@@ -109,7 +114,7 @@ public class Qwerty_2_class {
                 // В принципе работает, но не заполоню ли я память кучей объектов этого
                 // класса???
                 Podumat pd = new Podumat();
-                pd.podumat(Qwerty_2_class.this.roomNumber);
+                pd.podumat(roomNumber);
                 textArea_1.setText(Path_V.TOv);
 
             }
@@ -118,12 +123,12 @@ public class Qwerty_2_class {
         JButton button_1 = new JButton("Сделать");
         button_1.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) { // КНОПКА "СКАЗАТЬ"
-                Qwerty_2_class.this.roomNumber = Skasat.skasat();
+                roomNumber = Skasat.skasat();
                 System.out.println("Перехожу в новую комнату");
                 // @todo теперь я понял, зачем тут использовалась глобальная переменная,
                 // а в Perehod лишний раз звался Path_T.path_T().
                 // Здесь надо получить из skasat() новый номер комнаты и достать его
-                textArea.setText(Rooms.getRoom(roomNumber));
+                textArea.setText(rooms.getRoom(roomNumber));
                 textArea_1.setText("");
             }
         });

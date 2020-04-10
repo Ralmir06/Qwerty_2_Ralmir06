@@ -12,26 +12,28 @@ import java.util.stream.Collectors;
 
 public class Rooms {
 
-    private static final Charset CHARSET = Charset.forName("Windows-1251");
+    private String data;
+
+    public Rooms(String data) {
+        this.data = data;
+    }
 
     /**
      * Читаем файл, а потом по номеру комнаты достаёт описание комнаты.
      * Что тут плохо:
-     * 1. Незачем постоянно перечитывать файл
-     * 2. Очень хреновый и неудобный формат файла. Его и редактировать неудобно и разбирать сложно.
+     * 1. Очень хреновый и неудобный формат файла. Его и редактировать неудобно и разбирать сложно.
      * И, судя по комментариям, он порождает какие-то сложности. Знать бы какие.
      */
-    public static String getRoom(int roomNumber) {
+    public String getRoom(int roomNumber) {
         String roomsResourcePath = "/fails/Komnaty";
-        String line = readRooms(roomsResourcePath);
 
         System.out.println("T" + roomNumber);
         String roomStartMarker = "T" + roomNumber;
         String roomEndMarker = "t" + roomNumber;
 
-        int startOfRoom = line.indexOf(roomStartMarker) + roomStartMarker.length() + 1;
-        int endOfRoom = line.indexOf(roomEndMarker);
-        String room = line.substring(startOfRoom, endOfRoom);
+        int startOfRoom = data.indexOf(roomStartMarker) + roomStartMarker.length() + 1;
+        int endOfRoom = data.indexOf(roomEndMarker);
+        String room = data.substring(startOfRoom, endOfRoom);
         // Это пока не понятно:
         // Некоторые особые символы он не читает. Используй
         // буквенные сочетания!
@@ -42,17 +44,6 @@ public class Rooms {
         return room;
     }
 
-    private static String readRooms(String resourcePath) {
-        try (InputStream ins = Rooms.class.getResourceAsStream(resourcePath);
-                BufferedReader reader = new BufferedReader(new InputStreamReader(ins, CHARSET))) {
-            return reader.readLine();
-        } catch (IOException ex) {
-            // просто перевыбрасываем как неперехватываемое исключение
-            // в большинстве случаев - это как раз то, что нужно
-            // Код не замусорен обработкой, в которой всё равно не понятно, что делать.
-            // А если где-то надо всё-таки перехватить, то можно там и добавить try/catch
-            throw new RuntimeException("Can not read resource '" + resourcePath + "'", ex);
-        }
-    }
+
 
 }
