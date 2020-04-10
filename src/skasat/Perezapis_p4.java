@@ -30,9 +30,9 @@ public class Perezapis_p4 {
 			for (int i = 0; i < Prochedura_1.slova.length; i++) {
 		System.out.print("Перезаписываю словоформу: \""+Prochedura_1.slova[i]+"\". ");
 			
-		//Prochedura_1.slova[i]=Prochedura_1.slova[i]+"T"+Perem.T;  //Таким образом массив Слова будет просто перезаписываться, без создания массива Слова+... Но в кнопке "Сказать" это не нужно.
+		//Prochedura_1.slova[i]=Prochedura_1.slova[i]+"T"+Perem.T;  // Таким образом массив Слова будет просто перезаписываться, без создания массива Слова+... Но в кнопке "Сказать" это не нужно.
 				
-		String path = "src//fails//Slovar";
+		String path = "src//fails//Slovar"; // это не сработает с ресурсами. надо хранить снаружи
 		File file_slov = new File(path);
 		String sear =Prochedura_1.slova[i];
 	Scanner scanner_slov;

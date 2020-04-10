@@ -13,10 +13,16 @@ package skasat;
 
 public class Skasat {
 
-    public static void skasat() {
+    /**
+     *
+     * @return номер следующей комнаты
+     */
+    public static int skasat() {
         System.out.println("Активирую Сказать");
-        Perezapis_p4.perezapis();
-        Perehod.perehod();
+        // Эта штука постоянно поганит файл Slovar, так что я пока выключу, чтобы не мешалась
+        // @todo осознать, что с этим делать и починить
+        // Perezapis_p4.perezapis();
+        return Perehod.perehod();
     }
 
 }

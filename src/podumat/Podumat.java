@@ -19,7 +19,7 @@ import pervaya.Qwerty_2_class;
 
 public class Podumat {
 public static String predl;
-	public void podumat() {
+	public void podumat(int roomNumber) {
 		String text = Qwerty_2_class.textField.getText();
 		
 		text = text.replaceAll("( )\\1+", "$1"); //Это способ заменять определённые символы в строке. Забавно, что сами символы указываются в скобках (), затем все эти символы объединяются в групп 1.
@@ -39,7 +39,7 @@ public static String predl;
 		Perem.W=Proch_massiv.max_index;
 		Perem.V=Perem.W;
 		try {
-			Path_V.path_V();
+			Path_V.path_V(roomNumber);
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
