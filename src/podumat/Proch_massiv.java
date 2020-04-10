@@ -1,5 +1,5 @@
-//Данный класс должен быть процедурой (или это здесь функция называется?), которая работает с массивом Varianty[] и присваивает порядковый номер элемента массива 
-//с наибольшим значением переменной W.
+//Р”Р°РЅРЅС‹Р№ РєР»Р°СЃСЃ РґРѕР»Р¶РµРЅ Р±С‹С‚СЊ РїСЂРѕС†РµРґСѓСЂРѕР№ (РёР»Рё СЌС‚Рѕ Р·РґРµСЃСЊ С„СѓРЅРєС†РёСЏ РЅР°Р·С‹РІР°РµС‚СЃСЏ?), РєРѕС‚РѕСЂР°СЏ СЂР°Р±РѕС‚Р°РµС‚ СЃ РјР°СЃСЃРёРІРѕРј Varianty[] Рё РїСЂРёСЃРІР°РёРІР°РµС‚ РїРѕСЂСЏРґРєРѕРІС‹Р№ РЅРѕРјРµСЂ СЌР»РµРјРµРЅС‚Р° РјР°СЃСЃРёРІР° 
+//СЃ РЅР°РёР±РѕР»СЊС€РёРј Р·РЅР°С‡РµРЅРёРµРј РїРµСЂРµРјРµРЅРЅРѕР№ W.
 
 package podumat;
 
@@ -9,18 +9,18 @@ public class Proch_massiv {
 	public static int max_index=0;
 	public static void proch_massiv() {
 	/*	System.out.println();
-		System.out.println("Сейчас я выполняю процедуру выявления максимума!");
+		System.out.println("РЎРµР№С‡Р°СЃ СЏ РІС‹РїРѕР»РЅСЏСЋ РїСЂРѕС†РµРґСѓСЂСѓ РІС‹СЏРІР»РµРЅРёСЏ РјР°РєСЃРёРјСѓРјР°!");
 		System.out.println();
 	*/
 		int max_element=Perem.varianty[0];
 		int i=0;
 		for(i=0;i<Perem.varianty.length;i++){
-		//	System.out.println("Запускаю цикл for");
-		//	System.out.println("Сейчас я буду СРАВНИВАТЬ: "+Perem.varianty[i]+" и "+max_element);
+		//	System.out.println("Р—Р°РїСѓСЃРєР°СЋ С†РёРєР» for");
+		//	System.out.println("РЎРµР№С‡Р°СЃ СЏ Р±СѓРґСѓ РЎР РђР’РќРР’РђРўР¬: "+Perem.varianty[i]+" Рё "+max_element);
             if(Perem.varianty[i]>=max_element){
             	max_element=Perem.varianty[i];
                 Proch_massiv.max_index=i;
-        //        System.out.println("Сейчас маскимальный элемент выглядит так:"+max_element);
+        //        System.out.println("РЎРµР№С‡Р°СЃ РјР°СЃРєРёРјР°Р»СЊРЅС‹Р№ СЌР»РµРјРµРЅС‚ РІС‹РіР»СЏРґРёС‚ С‚Р°Рє:"+max_element);
                 
             }
            

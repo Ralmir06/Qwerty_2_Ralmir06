@@ -1,4 +1,4 @@
-// Это класс-процедура для обнуления всех элементов массива Varianty[]
+// Р­С‚Рѕ РєР»Р°СЃСЃ-РїСЂРѕС†РµРґСѓСЂР° РґР»СЏ РѕР±РЅСѓР»РµРЅРёСЏ РІСЃРµС… СЌР»РµРјРµРЅС‚РѕРІ РјР°СЃСЃРёРІР° Varianty[]
 
 package podumat;
 
@@ -12,6 +12,6 @@ public class Znach_massiv {
 			Perem.varianty[i]=0;
 		}
 		System.out.println();
-		System.out.println("А теперь мы обнулили массив Вариантов. Получив: "+Arrays.toString(Perem.varianty));
+		System.out.println("Рђ С‚РµРїРµСЂСЊ РјС‹ РѕР±РЅСѓР»РёР»Рё РјР°СЃСЃРёРІ Р’Р°СЂРёР°РЅС‚РѕРІ. РџРѕР»СѓС‡РёРІ: "+Arrays.toString(Perem.varianty));
 	}
 }

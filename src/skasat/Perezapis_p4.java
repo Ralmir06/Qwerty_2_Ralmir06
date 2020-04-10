@@ -1,6 +1,6 @@
-// Описание подпроцессов процедуры  Skasat.
-// Это подпроцедура №4. Здесь должен быть механизм перезаписи данных. Для этого мы ищем в файле Словарь смесь букв и цифр, как в процедуре № 2. 
-// После этого отступаем пробел и меняем все числа (до символа-стопора) на Slova+. Перезаписывая файл. 
+// РћРїРёСЃР°РЅРёРµ РїРѕРґРїСЂРѕС†РµСЃСЃРѕРІ РїСЂРѕС†РµРґСѓСЂС‹  Skasat.
+// Р­С‚Рѕ РїРѕРґРїСЂРѕС†РµРґСѓСЂР° в„–4. Р—РґРµСЃСЊ РґРѕР»Р¶РµРЅ Р±С‹С‚СЊ РјРµС…Р°РЅРёР·Рј РїРµСЂРµР·Р°РїРёСЃРё РґР°РЅРЅС‹С…. Р”Р»СЏ СЌС‚РѕРіРѕ РјС‹ РёС‰РµРј РІ С„Р°Р№Р»Рµ РЎР»РѕРІР°СЂСЊ СЃРјРµСЃСЊ Р±СѓРєРІ Рё С†РёС„СЂ, РєР°Рє РІ РїСЂРѕС†РµРґСѓСЂРµ в„– 2. 
+// РџРѕСЃР»Рµ СЌС‚РѕРіРѕ РѕС‚СЃС‚СѓРїР°РµРј РїСЂРѕР±РµР» Рё РјРµРЅСЏРµРј РІСЃРµ С‡РёСЃР»Р° (РґРѕ СЃРёРјРІРѕР»Р°-СЃС‚РѕРїРѕСЂР°) РЅР° Slova+. РџРµСЂРµР·Р°РїРёСЃС‹РІР°СЏ С„Р°Р№Р». 
 
 package skasat;
 
@@ -22,17 +22,17 @@ import podumat.Prochedura_3;
 public class Perezapis_p4 {
 	//Podumat.predl
 	//Prochedura_1.slova
-	public static int [] slova_plus; //ВОТ ЗДЕСЬ первое появление МАССИВА slova_plus!
+	public static int [] slova_plus; //Р’РћРў Р—Р”Р•РЎР¬ РїРµСЂРІРѕРµ РїРѕСЏРІР»РµРЅРёРµ РњРђРЎРЎРР’Рђ slova_plus!
 	
 	public static void perezapis() {
-		System.out.println("ВЫПОЛНЯЮ ФУНЦКИЮ ПОЛОЖИТЕЛЬНОЙ ПЕРЕЗАПИСИ. РАБОТАЮ С КАЖДЫМ СЛОВОМ ОТДЕЛЬНО! ");
+		System.out.println("Р’Р«РџРћР›РќРЇР® Р¤РЈРќР¦РљРР® РџРћР›РћР–РРўР•Р›Р¬РќРћР™ РџР•Р Р•Р—РђРџРРЎР. Р РђР‘РћРўРђР® РЎ РљРђР–Р”Р«Рњ РЎР›РћР’РћРњ РћРўР”Р•Р›Р¬РќРћ! ");
 		//Prochedura_1.slova
 			for (int i = 0; i < Prochedura_1.slova.length; i++) {
-		System.out.print("Перезаписываю словоформу: \""+Prochedura_1.slova[i]+"\". ");
+		System.out.print("РџРµСЂРµР·Р°РїРёСЃС‹РІР°СЋ СЃР»РѕРІРѕС„РѕСЂРјСѓ: \""+Prochedura_1.slova[i]+"\". ");
 			
-		//Prochedura_1.slova[i]=Prochedura_1.slova[i]+"T"+Perem.T;  //Таким образом массив Слова будет просто перезаписываться, без создания массива Слова+... Но в кнопке "Сказать" это не нужно.
+		//Prochedura_1.slova[i]=Prochedura_1.slova[i]+"T"+Perem.T;  // РўР°РєРёРј РѕР±СЂР°Р·РѕРј РјР°СЃСЃРёРІ РЎР»РѕРІР° Р±СѓРґРµС‚ РїСЂРѕСЃС‚Рѕ РїРµСЂРµР·Р°РїРёСЃС‹РІР°С‚СЊСЃСЏ, Р±РµР· СЃРѕР·РґР°РЅРёСЏ РјР°СЃСЃРёРІР° РЎР»РѕРІР°+... РќРѕ РІ РєРЅРѕРїРєРµ "РЎРєР°Р·Р°С‚СЊ" СЌС‚Рѕ РЅРµ РЅСѓР¶РЅРѕ.
 				
-		String path = "src//fails//Slovar";
+		String path = "src//fails//Slovar"; // СЌС‚Рѕ РЅРµ СЃСЂР°Р±РѕС‚Р°РµС‚ СЃ СЂРµСЃСѓСЂСЃР°РјРё. РЅР°РґРѕ С…СЂР°РЅРёС‚СЊ СЃРЅР°СЂСѓР¶Рё
 		File file_slov = new File(path);
 		String sear =Prochedura_1.slova[i];
 	Scanner scanner_slov;
@@ -42,47 +42,47 @@ public class Perezapis_p4 {
 		
         while (scanner_slov.hasNext()) {
             String search = scanner_slov.next();
-            //System.out.println("ЭТО ТЕ ДАННЫЕ, ЧТО МЫ ПРОВЕРЯЕМ:"+search);
+            //System.out.println("Р­РўРћ РўР• Р”РђРќРќР«Р•, Р§РўРћ РњР« РџР РћР’Р•Р РЇР•Рњ:"+search);
 
             if (search.equalsIgnoreCase(sear)) {
-                System.out.println("Найдена словоформа: " +search);
+                System.out.println("РќР°Р№РґРµРЅР° СЃР»РѕРІРѕС„РѕСЂРјР°: " +search);
                 
                 scanner_slov = new Scanner(file_slov);
         		String line_slov = scanner_slov.nextLine();
         		//System.out.println("line_slov "+line_slov);
         		int poz_slova = line_slov.indexOf(" "+Prochedura_1.slova[i])+1;
         		System.out.println(Prochedura_1.slova[i]);
-        		System.out.println("Позиция словоформы: "+poz_slova);
+        		System.out.println("РџРѕР·РёС†РёСЏ СЃР»РѕРІРѕС„РѕСЂРјС‹: "+poz_slova);
         		int razmer = Prochedura_1.slova[i].length();
-        		System.out.println("Размер словоформы: "+razmer);
+        		System.out.println("Р Р°Р·РјРµСЂ СЃР»РѕРІРѕС„РѕСЂРјС‹: "+razmer);
         		int stopor=line_slov.indexOf("ST"+Prochedura_1.slova[i])+-1;
-        		System.out.println("Позиция стопора: "+stopor);
-        		System.out.println("Позиция ручного стопора: "+poz_slova+razmer+20);
+        		System.out.println("РџРѕР·РёС†РёСЏ СЃС‚РѕРїРѕСЂР°: "+stopor);
+        		System.out.println("РџРѕР·РёС†РёСЏ СЂСѓС‡РЅРѕРіРѕ СЃС‚РѕРїРѕСЂР°: "+poz_slova+razmer+20);
         		String line_slova = line_slov.substring(poz_slova+razmer+1,stopor);
         		//System.out.println("liniya_slova");
         		//System.out.println(line_slova);
         		
-        		int[] evolvo_plus = Arrays.stream(line_slova.split(",")).mapToInt(Integer::parseInt).toArray(); // ВОТ ЗДЕСЬ МАССИВ slova_plus!
+        		int[] evolvo_plus = Arrays.stream(line_slova.split(",")).mapToInt(Integer::parseInt).toArray(); // Р’РћРў Р—Р”Р•РЎР¬ РњРђРЎРЎРР’ slova_plus!
         		String evolvo_do=Prochedura_1.slova[i]+" "+evolvo_plus[0]+","+evolvo_plus[1]+","+evolvo_plus[2]+","+evolvo_plus[3]+","+evolvo_plus[4]+","+evolvo_plus[5]+","+evolvo_plus[6]+","+evolvo_plus[7]+","+evolvo_plus[8]+","+evolvo_plus[9];
-        		System.out.println("Строка без изменения: "+evolvo_do);
+        		System.out.println("РЎС‚СЂРѕРєР° Р±РµР· РёР·РјРµРЅРµРЅРёСЏ: "+evolvo_do);
     
-        		evolvo_plus[Perem.W]=evolvo_plus[Perem.W]+1; // ВОТ ЗДЕСЬ ПРИБАВЛЕНИЕ!
-        		System.out.print("Строка ДЛЯ ПЕРЕЗАПИСИ: ");
+        		evolvo_plus[Perem.W]=evolvo_plus[Perem.W]+1; // Р’РћРў Р—Р”Р•РЎР¬ РџР РР‘РђР’Р›Р•РќРР•!
+        		System.out.print("РЎС‚СЂРѕРєР° Р”Р›РЇ РџР•Р Р•Р—РђРџРРЎР: ");
         		String evolvo_posle=Prochedura_1.slova[i]+" "+evolvo_plus[0]+","+evolvo_plus[1]+","+evolvo_plus[2]+","+evolvo_plus[3]+","+evolvo_plus[4]+","+evolvo_plus[5]+","+evolvo_plus[6]+","+evolvo_plus[7]+","+evolvo_plus[8]+","+evolvo_plus[9];
         		System.out.println(evolvo_posle);
         		flag_slova=true;
         		
-        		System.out.println("Содержимого файла для перезаписи: "+line_slov);
-        		System.out.println("ОСУЩЕСТВЛЯЮ ПОЛОЖИТЕЛЬНУЮ ПЕРЕЗАПИСЬ!!!");
+        		System.out.println("РЎРѕРґРµСЂР¶РёРјРѕРіРѕ С„Р°Р№Р»Р° РґР»СЏ РїРµСЂРµР·Р°РїРёСЃРё: "+line_slov);
+        		System.out.println("РћРЎРЈР©Р•РЎРўР’Р›РЇР® РџРћР›РћР–РРўР•Р›Р¬РќРЈР® РџР•Р Р•Р—РђРџРРЎР¬!!!");
         		line_slov=line_slov.replaceAll(evolvo_do,evolvo_posle);
-        		System.out.println("Вот что должно записаться в файл: "+line_slov);
+        		System.out.println("Р’РѕС‚ С‡С‚Рѕ РґРѕР»Р¶РЅРѕ Р·Р°РїРёСЃР°С‚СЊСЃСЏ РІ С„Р°Р№Р»: "+line_slov);
         		
 
         		try(FileWriter writer = new FileWriter("src//fails//Slovar", false)) {
-        		// запись всей строки
+        		// Р·Р°РїРёСЃСЊ РІСЃРµР№ СЃС‚СЂРѕРєРё
         		String text = line_slov;
         		writer.write(text);
-        		// запись по символам
+        		// Р·Р°РїРёСЃСЊ РїРѕ СЃРёРјРІРѕР»Р°Рј
         		
         		writer.flush();
         		}
@@ -92,18 +92,18 @@ public class Perezapis_p4 {
                 
             } 
             else  {
-                //System.out.println("Такого слова программа не нашла.");
+                //System.out.println("РўР°РєРѕРіРѕ СЃР»РѕРІР° РїСЂРѕРіСЂР°РјРјР° РЅРµ РЅР°С€Р»Р°.");
             	  }  
         }
 
         if (flag_slova==true) {
-        	System.out.println("Флаг поднят, теперь я его опускаю");
+        	System.out.println("Р¤Р»Р°Рі РїРѕРґРЅСЏС‚, С‚РµРїРµСЂСЊ СЏ РµРіРѕ РѕРїСѓСЃРєР°СЋ");
         	flag_slova=false;
         }
         else { 
         	String text = " "+Prochedura_1.slova[i]+" "+"0,0,0,0,0,0,0,0,0,0"+" "+"ST"+Prochedura_1.slova[i];
-        	System.out.println("Флаг опущен, а значит такого слова нет в Словаре.");
-        	System.out.println("Добавляю слово в конец Словаря.");
+        	System.out.println("Р¤Р»Р°Рі РѕРїСѓС‰РµРЅ, Р° Р·РЅР°С‡РёС‚ С‚Р°РєРѕРіРѕ СЃР»РѕРІР° РЅРµС‚ РІ РЎР»РѕРІР°СЂРµ.");
+        	System.out.println("Р”РѕР±Р°РІР»СЏСЋ СЃР»РѕРІРѕ РІ РєРѕРЅРµС† РЎР»РѕРІР°СЂСЏ.");
 	   	 	try {
 	   	 		Files.write(Paths.get(path), text.getBytes(), StandardOpenOption.APPEND);
 	   	 	}
