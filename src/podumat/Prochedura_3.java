@@ -1,5 +1,5 @@
-// Описание подпроцессов процедуры Podumat.
-// Это подпроцедура №3. Её задача сложить значения массивов varyanty[] и slova_plus[].
+// РћРїРёСЃР°РЅРёРµ РїРѕРґРїСЂРѕС†РµСЃСЃРѕРІ РїСЂРѕС†РµРґСѓСЂС‹ Podumat.
+// Р­С‚Рѕ РїРѕРґРїСЂРѕС†РµРґСѓСЂР° в„–3. Р•С‘ Р·Р°РґР°С‡Р° СЃР»РѕР¶РёС‚СЊ Р·РЅР°С‡РµРЅРёСЏ РјР°СЃСЃРёРІРѕРІ varyanty[] Рё slova_plus[].
 
 package podumat;
 
@@ -15,7 +15,7 @@ public class Prochedura_3 {
 			Perem.varianty[i]=Prochedura_2.slova_plus[i]+Perem.varianty[i];
 		}
 		System.out.println();
-		System.out.println("Мы добавляем данные в массив данных Варианты. Получая: "+Arrays.toString(Perem.varianty));
+		System.out.println("РњС‹ РґРѕР±Р°РІР»СЏРµРј РґР°РЅРЅС‹Рµ РІ РјР°СЃСЃРёРІ РґР°РЅРЅС‹С… Р’Р°СЂРёР°РЅС‚С‹. РџРѕР»СѓС‡Р°СЏ: "+Arrays.toString(Perem.varianty));
 		System.out.println();
 		Proch_massiv.proch_massiv();
 	}

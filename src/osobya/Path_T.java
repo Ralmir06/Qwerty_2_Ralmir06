@@ -1,4 +1,4 @@
-//Этот файл должен создавать переменную T, для файла Perem
+//Р­С‚РѕС‚ С„Р°Р№Р» РґРѕР»Р¶РµРЅ СЃРѕР·РґР°РІР°С‚СЊ РїРµСЂРµРјРµРЅРЅСѓСЋ T, РґР»СЏ С„Р°Р№Р»Р° Perem
 
 package osobya;
 
@@ -18,8 +18,8 @@ public class Path_T {
 	System.out.println("T"+Perem.T);
 	String nomer_komnaty="T"+Perem.T;
 	String konez_komnaty="t"+Perem.T;
-	Path_T.TOk=line.substring(line.indexOf("T"+Perem.T)+nomer_komnaty.length()+1,line.indexOf(konez_komnaty)); // Некоторые особые символы он не читает. Используй буквенные сочетания!
-	//ВМЕСТО 3 (ТРОЙКА) ДОЛЖНО БЫТЬ ЧТО-ТО ДРУГОЕ, ВЕДЬ С 3 (ТРОЙКОЙ) ОН НЕ СМОЖЕТ ПРОЧИТАТЬ ДВУЗНАЧНЫЕ НАЗВАНИЯ КОМНАТ!!!
+	Path_T.TOk=line.substring(line.indexOf("T"+Perem.T)+nomer_komnaty.length()+1,line.indexOf(konez_komnaty)); // РќРµРєРѕС‚РѕСЂС‹Рµ РѕСЃРѕР±С‹Рµ СЃРёРјРІРѕР»С‹ РѕРЅ РЅРµ С‡РёС‚Р°РµС‚. РСЃРїРѕР»СЊР·СѓР№ Р±СѓРєРІРµРЅРЅС‹Рµ СЃРѕС‡РµС‚Р°РЅРёСЏ!
+	//Р’РњР•РЎРўРћ 3 (РўР РћР™РљРђ) Р”РћР›Р–РќРћ Р‘Р«РўР¬ Р§РўРћ-РўРћ Р”Р РЈР“РћР•, Р’Р•Р”Р¬ РЎ 3 (РўР РћР™РљРћР™) РћРќ РќР• РЎРњРћР–Р•Рў РџР РћР§РРўРђРўР¬ Р”Р’РЈР—РќРђР§РќР«Р• РќРђР—Р’РђРќРРЇ РљРћРњРќРђРў!!!
 	System.out.println(Path_T.TOk);
 	System.out.println();
 	

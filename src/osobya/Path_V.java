@@ -1,4 +1,4 @@
-//Этот файл должен создавать переменную V, для файла Perem
+//Р­С‚РѕС‚ С„Р°Р№Р» РґРѕР»Р¶РµРЅ СЃРѕР·РґР°РІР°С‚СЊ РїРµСЂРµРјРµРЅРЅСѓСЋ V, РґР»СЏ С„Р°Р№Р»Р° Perem
 
 package osobya;
 
@@ -20,8 +20,8 @@ public class Path_V {
 	konez_Varianta="t"+Perem.T+"v"+Perem.V;
 	//String konez_Varianta="t"+Perem.T+"v"+Perem.V;
 	System.out.println(nomer_Varianta);
-	System.out.println("Вывожу конец варианта: "+konez_Varianta);
-	Path_V.TOv=line.substring(line.indexOf(nomer_Varianta)+nomer_Varianta.length()+1,line.indexOf(Path_V.konez_Varianta)); // Некоторые особые символы он не читает. Используй буквенные сочетания!
+	System.out.println("Р’С‹РІРѕР¶Сѓ РєРѕРЅРµС† РІР°СЂРёР°РЅС‚Р°: "+konez_Varianta);
+	Path_V.TOv=line.substring(line.indexOf(nomer_Varianta)+nomer_Varianta.length()+1,line.indexOf(Path_V.konez_Varianta)); // РќРµРєРѕС‚РѕСЂС‹Рµ РѕСЃРѕР±С‹Рµ СЃРёРјРІРѕР»С‹ РѕРЅ РЅРµ С‡РёС‚Р°РµС‚. РСЃРїРѕР»СЊР·СѓР№ Р±СѓРєРІРµРЅРЅС‹Рµ СЃРѕС‡РµС‚Р°РЅРёСЏ!
 	System.out.println(Path_V.TOv);
 	System.out.println();
 	scanner_slov.close();

@@ -29,7 +29,7 @@ import javax.swing.text.MaskFormatter;
 
 public class Qwerty_2_class {
 
-	public static String s = "Перехожу в новую комнату"; //
+	public static String s = "РџРµСЂРµС…РѕР¶Сѓ РІ РЅРѕРІСѓСЋ РєРѕРјРЅР°С‚Сѓ"; //
 	private JFrame frame;
 	public static JTextField textField;
 
@@ -79,12 +79,12 @@ public class Qwerty_2_class {
 		textArea.setForeground(new Color(0, 0, 0));
 		textArea.setLineWrap(true);
 		textArea.setText(Path_T.TOk);
-		//Ниже расположен код с помощью которого стандартное Поле Ввода замещается Полем форматирования с маской, через которую пропускаются только определённые символы. 
-		//В случае необходимости просто закоменти эти строки и раскоменти строку //textField = new JTextField();
+		//РќРёР¶Рµ СЂР°СЃРїРѕР»РѕР¶РµРЅ РєРѕРґ СЃ РїРѕРјРѕС‰СЊСЋ РєРѕС‚РѕСЂРѕРіРѕ СЃС‚Р°РЅРґР°СЂС‚РЅРѕРµ РџРѕР»Рµ Р’РІРѕРґР° Р·Р°РјРµС‰Р°РµС‚СЃСЏ РџРѕР»РµРј С„РѕСЂРјР°С‚РёСЂРѕРІР°РЅРёСЏ СЃ РјР°СЃРєРѕР№, С‡РµСЂРµР· РєРѕС‚РѕСЂСѓСЋ РїСЂРѕРїСѓСЃРєР°СЋС‚СЃСЏ С‚РѕР»СЊРєРѕ РѕРїСЂРµРґРµР»С‘РЅРЅС‹Рµ СЃРёРјРІРѕР»С‹. 
+		//Р’ СЃР»СѓС‡Р°Рµ РЅРµРѕР±С…РѕРґРёРјРѕСЃС‚Рё РїСЂРѕСЃС‚Рѕ Р·Р°РєРѕРјРµРЅС‚Рё СЌС‚Рё СЃС‚СЂРѕРєРё Рё СЂР°СЃРєРѕРјРµРЅС‚Рё СЃС‚СЂРѕРєСѓ //textField = new JTextField();
 		MaskFormatter formatter = null;
 		try {
 			formatter = new MaskFormatter("**************************************************************************************************************");
-			formatter.setValidCharacters(",йцукенгшщзхъфывапролджэячсмитьбю.ЙЦУКЕНГШЩЗХЪФЫВАПРОЛДЖЭЯЧСМИТЬБЮ. ");
+			formatter.setValidCharacters(",Р№С†СѓРєРµРЅРіС€С‰Р·С…СЉС„С‹РІР°РїСЂРѕР»РґР¶СЌСЏС‡СЃРјРёС‚СЊР±СЋ.Р™Р¦РЈРљР•РќР“РЁР©Р—РҐРЄР¤Р«Р’РђРџР РћР›Р”Р–Р­РЇР§РЎРњРРўР¬Р‘Р®. ");
 		}
 		catch (java.text.ParseException exc) {
 			System.err.println("formatter is bad: " + exc.getMessage());
@@ -94,7 +94,7 @@ public class Qwerty_2_class {
 		
 		textField = textField_m;
 		
-		// Ниже программа перехватчик с клавиатуры для Поля Ввода, в том виде, что сейчас есть программа позволяет вводить ТОЛЬКО цифры.
+		// РќРёР¶Рµ РїСЂРѕРіСЂР°РјРјР° РїРµСЂРµС…РІР°С‚С‡РёРє СЃ РєР»Р°РІРёР°С‚СѓСЂС‹ РґР»СЏ РџРѕР»СЏ Р’РІРѕРґР°, РІ С‚РѕРј РІРёРґРµ, С‡С‚Рѕ СЃРµР№С‡Р°СЃ РµСЃС‚СЊ РїСЂРѕРіСЂР°РјРјР° РїРѕР·РІРѕР»СЏРµС‚ РІРІРѕРґРёС‚СЊ РўРћР›Р¬РљРћ С†РёС„СЂС‹.
 		/*textField.addKeyListener(new KeyAdapter() { 
 			   public void keyTyped(KeyEvent e) {
 			      char c = e.getKeyChar();
@@ -109,9 +109,9 @@ public class Qwerty_2_class {
 		textField.setColumns(10);
 		
 		JButton button = new JButton("\u041F\u043E\u0434\u0443\u043C\u0430\u0442\u044C");
-		button.addActionListener(new ActionListener() {                               //КНОПКА "ПОДУМАТЬ"
+		button.addActionListener(new ActionListener() {                               //РљРќРћРџРљРђ "РџРћР”РЈРњРђРўР¬"
 			public void actionPerformed(ActionEvent arg0) {
-				// В принципе работает, но не заполоню ли я память кучей объектов этого класса???
+				// Р’ РїСЂРёРЅС†РёРїРµ СЂР°Р±РѕС‚Р°РµС‚, РЅРѕ РЅРµ Р·Р°РїРѕР»РѕРЅСЋ Р»Рё СЏ РїР°РјСЏС‚СЊ РєСѓС‡РµР№ РѕР±СЉРµРєС‚РѕРІ СЌС‚РѕРіРѕ РєР»Р°СЃСЃР°???
 				Podumat pd = new Podumat ();
 				pd.podumat();
 				textArea_1.setText(Path_V.TOv);
@@ -121,7 +121,7 @@ public class Qwerty_2_class {
 		
 		JButton button_1 = new JButton("\u0421\u0434\u0435\u043B\u0430\u0442\u044C");
 		button_1.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {                               //КНОПКА "СКАЗАТЬ"
+			public void actionPerformed(ActionEvent e) {                               //РљРќРћРџРљРђ "РЎРљРђР—РђРўР¬"
 				//Skasat sk = new Skasat ();
 				Skasat.skasat();
 				System.out.println(Qwerty_2_class.s);
